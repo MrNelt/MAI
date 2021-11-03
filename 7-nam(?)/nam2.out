@@ -1,0 +1,48 @@
+nam: Copy.nam of Sat Oct 19 20:55:13 2019
+
+   *a        ->  aA*      
+   *b        ->  bB*      
+   *         ->  =        
+   Aa        ->  aA       
+   Ab        ->  bA       
+   Ba        ->  aB       
+   Bb        ->  bB       
+   A=        ->  =a       
+   B=        ->  =b       
+   =         ->. =        
+             ->  *        
+
+baabba
+--------------------------------------------------------------------------------
+[           ->  *         ]  "*baabba"
+[ *b        ->  bB*       ]  "bB*aabba"
+[ *a        ->  aA*       ]  "bBaA*abba"
+[ *a        ->  aA*       ]  "bBaAaA*bba"
+[ *b        ->  bB*       ]  "bBaAaAbB*ba"
+[ *b        ->  bB*       ]  "bBaAaAbBbB*a"
+[ *a        ->  aA*       ]  "bBaAaAbBbBaA*"
+[ *         ->  =         ]  "bBaAaAbBbBaA="
+[ Aa        ->  aA        ]  "bBaaAAbBbBaA="
+[ Ab        ->  bA        ]  "bBaaAbABbBaA="
+[ Ab        ->  bA        ]  "bBaabAABbBaA="
+[ Ba        ->  aB        ]  "baBabAABbBaA="
+[ Ba        ->  aB        ]  "baaBbAABbBaA="
+[ Ba        ->  aB        ]  "baaBbAABbaBA="
+[ Bb        ->  bB        ]  "baabBAABbaBA="
+[ Bb        ->  bB        ]  "baabBAAbBaBA="
+[ Ab        ->  bA        ]  "baabBAbABaBA="
+[ Ab        ->  bA        ]  "baabBbAABaBA="
+[ Ba        ->  aB        ]  "baabBbAAaBBA="
+[ Aa        ->  aA        ]  "baabBbAaABBA="
+[ Aa        ->  aA        ]  "baabBbaAABBA="
+[ Bb        ->  bB        ]  "baabbBaAABBA="
+[ Ba        ->  aB        ]  "baabbaBAABBA="
+[ A=        ->  =a        ]  "baabbaBAABB=a"
+[ B=        ->  =b        ]  "baabbaBAAB=ba"
+[ B=        ->  =b        ]  "baabbaBAA=bba"
+[ A=        ->  =a        ]  "baabbaBA=abba"
+[ A=        ->  =a        ]  "baabbaB=aabba"
+[ B=        ->  =b        ]  "baabba=baabba"
+[ =         ->. =         ]  "baabba=baabba"
+--------------------------------------------------------------------------------
+
