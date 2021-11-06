@@ -23,7 +23,7 @@ int mod(int a, int b){
 }
 
 int inside(int x, int y){
-  if (x > -10 && y < -x + 10 && y > x + 10){
+  if (x >= -10 && y <= -x + 10 && y >= x + 10){
     return 1;
   }
   return 0;
