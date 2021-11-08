@@ -30,12 +30,11 @@ int main(void){
         int i = min(max(min(i0 - j0, i0 - l0), j0 - l0), i0 - (counter - 1)) % 30;
         int j = max(min(max(i0 - j0, i0 - l0), j0 - l0), i0 - (counter - 1)) % 30;
         int l = i0 % 30 - j0 % 30 + l0 % 30 - (counter - 1) % 30;
-        printf("%d %d %d %d \n", i, j, l, counter);
+        //printf("%d %d %d %d \n", i, j, l, counter);
         i0 = i;
         j0 = j;
         l0 = l;
     }
     printf("i = %d j = %d l = %d k = %d \n", i0, j0, l0, counter - 1);
-    printf("%d \n", -21, 4;
     return 0;
 }
