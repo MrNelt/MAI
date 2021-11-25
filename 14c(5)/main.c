@@ -12,7 +12,7 @@ int main(void){
     }
   }
   printf("Заданная матрица: \n");
-  for (int i = 0; i < n; i++){ //вывод матрицы
+  for (int i = 0; i < n; i++){ //вывод матрицы/;
     for (int j = 0; j < n; j++){
       printf("%d ", a[i][j]);
     }
