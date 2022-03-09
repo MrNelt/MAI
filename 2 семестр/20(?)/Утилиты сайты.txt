@@ -1,0 +1,44 @@
+http://kharchuk.ru/home/15-unix-foundations/79-diff-patch-utils
+”тилиты diff и patch 
+diff hello.c.old hello.c > patch.txt
+
+https://www.opennet.ru/docs/RUS/textutil/textutil-8.html
+--------------
+https://www.youtube.com/watch?v=iKP_lJh61Qg&t=249s
+https://avmim.com/aiovg_videos/join/
+Linux команда join Ч объединение файлов по одинаковому полю
+
+https://avmim.com/aiovg_videos/awk/
+Linux команда awk Ч краткое знакомство
+
+https://avmim.com/aiovg_videos/sed/
+Linux команда sed Ч редактор текстовых файлов
+
+https://avmim.com/aiovg_videos/grep/
+Linux команда grep Ч поиск фрагмента текста в файле (файлах)
+https://www.youtube.com/watch?v=5PoMMVYywhE
+https://www.youtube.com/watch?v=nYekPNoefHU
+команда grep в Unix
+
+https://avmim.com/aiovg_videos/paste/
+Linux команда paste Ч вывод на экран двух файлов р€дом
+
+https://avmim.com/aiovg_videos/tr/
+Linux команда tr Ч команда трансформации текста
+
+https://avmim.com/aiovg_videos/diff/
+Linux команда diff Ч команда сравнени€ текстовых файлов
+
+https://avmim.com/aiovg_videos/uniq/
+Linux команда uniq Ч обработка уникальных и повтор€ющихс€ строк
+
+https://www.youtube.com/watch?v=MuwPg4xwqf4
+sort command in Unix | Linux
+
+https://www.youtube.com/watch?v=Thgusg6vFy8
+»зучите команду find за 5 минут
+
+https://www.youtube.com/watch?v=k2k1LaKsAWI
+Linux Tutorials | uniq command 
+
+
