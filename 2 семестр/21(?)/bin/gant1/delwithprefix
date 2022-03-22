@@ -1,0 +1,31 @@
+if [ $# = 0 ]
+then echo "I'v done nothing"; exit;fi
+if [[ $1 == ? ]]
+then echo "Use: delwithprefix [-i] [prefix]";exit;fi
+if [[ $1 == '-i' ]]
+then i=1; shift
+else i=0
+fi
+echo "i=$i \$1=$1 \$#=$# \$@=$@"
+if [ $# = 0 ];then
+for file in P/*
+do
+echo "do delete file $file ? (y,n)"
+read a 
+if [[ $a == 'y' ]]
+then rm $file;fi
+done
+else
+for file in P/$1*;do
+if [ $i = 1 ]
+then
+echo "do delete file $file ? (y,n)"
+read a 
+if [[ $a == 'y' ]]
+then rm $file;fi
+else
+rm $file;echo $file deleted
+fi
+done
+fi
+

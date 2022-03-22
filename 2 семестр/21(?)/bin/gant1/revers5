@@ -1,0 +1,10 @@
+count=$#
+cmd=echo
+while true; do
+cmd="$cmd \$$count"
+count=$[ $count - 1 ]
+if [ $count = 0 ]
+then break
+fi; done
+eval $cmd
+

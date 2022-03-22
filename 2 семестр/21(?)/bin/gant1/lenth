@@ -1,0 +1,8 @@
+# lenth of $1 x2
+len () {
+b=$1
+echo ${#b}
+}
+a=$1
+echo lenth \$1 x2 = $(len $a$a)
+

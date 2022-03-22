@@ -1,0 +1,19 @@
+# head of $1 (lenth $2) and tail of $1 (lenth $3)
+
+len () {
+b=$1
+echo ${#b}
+}
+
+head () {
+b=$1
+echo ${b::$2}
+}
+
+tail () {
+b=$1
+echo ${b:$[$(len $b)-$2]}
+}
+
+echo head of \$1 = $(head $1 $2)
+echo tail of \$1 = $(tail $1 $3)

@@ -1,0 +1,356 @@
+﻿>>>~$ cat >rd
+read x y z
+echo revers:
+echo $z $y $x
+>>>~$ cat rd
+read x y z
+echo revers:
+echo $z $y $x
+>>>~$ chmod a+x rd
+>>>~$ rd
+rd: команда не найдена
+>>>~$ PATH=./:$PATH
+>>>~$ rd
+aaa bbb ccc
+revers:
+ccc bbb aaa
+>>>~$ rd
+'aaa bbb ccc' a b
+revers:
+ccc' a b bbb 'aaa
+>>>~$ cat rd
+read x 
+read y
+read z
+echo revers:
+echo $z $y $x
+>>>~$ rd
+aaa bbb ccc
+ddd eee
+fff
+revers:
+fff ddd eee aaa bbb ccc
+>>>~$ R=C/../TU/../CPP/../
+>>>~$ ${R}rd
+a
+b
+c
+revers:
+c b a
+>>>~$ R=C/../TU/../CPP/../rd
+>>>~$ $R
+c
+b
+a
+revers:
+a b c
+>>>~$ test -d C && cd C
+>>>~/C$ test -e aaaaa || cd ..
+>>>~$ a=5;b=5; test $a -eq $b && echo URA! || echo NO
+URA!
+>>>~$ a=5;b=6; test $a -eq $b && echo URA! || echo NO
+NO
+>>>~$ a=5;b=6; test $a -eq $b && echo URA! || echo NO!
+NO!
+>>>~$ set a b c d e
+>>>~$ echo $#
+5
+>>>~$ echo $0
+bash
+>>>~$ echo $1
+a
+>>>~$ shift
+>>>~$ echo $1
+b
+>>>~$ shift
+>>>~$ echo $1
+c
+>>>~$ shift
+>>>~$ echo $1
+d
+>>>~$ a=5;b=5; test $a -eq $b; echo $?
+0
+>>>~$ a=5;b=6; test $a -eq $b; echo $?
+1
+>>>~$ cat revers1
+#!/bin/bash
+if test $# = 4  # comment
+then echo $4 $3 $2 $1
+else echo $0 usage: arg1 arg2 arg3 arg4
+fi
+>>>~$ chmod a+x revers1
+>>>~$ revers1
+./revers1 usage: arg1 arg2 arg3 arg4
+>>>~$ revers1 aaa bb cc d
+d cc bb aaa
+>>>~$ a=5;b=6; test $a -eq $b; echo $? # aaaaaaaaaa
+1
+>>>~$ a=5;b=6; test $a -ne $b; echo $? # aaaaaaaaaa
+0
+>>>~$ cat revers2
+#!/bin/bash
+if [ $# = 4 ]
+then echo $4 $3 $2 $1
+else echo $0 usage: arg1 arg2 arg3 arg4
+fi
+>>>~$ revers2 aaaa bbb cc d
+d cc bbb aaaa
+>>>~$ cat >revers3
+count=$#
+cmd=echo
+while [ $count -gt 0 ]; do
+echo $count
+cmd="$cmd \$$count"
+count=`expr $count - 1` # let count--
+done
+eval $cmd
+>>>~$ cat revers3
+count=$#
+cmd=echo
+while [ $count -gt 0 ]; do
+echo $count
+cmd="$cmd \$$count"
+count=`expr $count - 1` # let count--
+done
+eval $cmd
+>>>~$ chmod a+x revers3
+>>>~$ revers3 1 2 3 4
+4
+3
+2
+1
+4 3 2 1
+>>>~$ cat revers3
+count=$#
+cmd=echo
+while [ $count -gt 0 ]; do
+# echo $count
+cmd="$cmd \$$count"
+count=`expr $count - 1` # let count--
+done
+eval $cmd
+>>>~$ revers3 1 2 3 4
+4 3 2 1
+>>>~$ revers3 1 2 3 4 5 6
+6 5 4 3 2 1
+>>>~$ cat >revers4
+list=""
+for arg;do
+list="$arg $list"; done
+echo $list
+>>>~$ cat revers4
+list=""
+for arg;do
+list="$arg $list"; done
+echo $list
+>>>~$ chmod a+x revers4
+>>>~$ revers4 1 2 3 4 5 6 7 
+7 6 5 4 3 2 1
+>>>~$ revers3 6
+6
+>>>~$ cat sizeofdir 
+#!/bin/bash
+cd C
+S=0
+for k in `ls *.cpp`; do
+echo $k
+l=`cat $k|wc -c`
+S=$[ $S+$l ] # let S+=$l
+done
+echo "Size of directory =$S bytes"
+
+>>>~$ ls
+ a   CPP                          jstu4-2.3   revers1   sizeofdir  'Рассылка 7'
+ b   d                            NAM         revers2   TU
+ c   JDT5                         rd          revers3   VTM
+ C   jre-8u261-linux-x64.tar.gz   read        revers4   Лаб21
+>>>~$ wc -c revers4
+54 revers4
+>>>~$ cat delwithprefix 
+if [ $# = 0 ]
+then echo "I'v done nothing"; exit;fi
+if [[ $1 == '?' ]]
+then echo "Use: delwithprefix [-i] [prefix]";fi
+if [[ $1 == '-i' ]]
+then i=1; shift
+else i=0
+fi
+echo "i=$i \$1=$1 \$#=$# \$@=$@"
+if [ $# = 0 ];then
+for file in P/*
+do
+echo "do delete file $file ? (y,n)"
+read a 
+if [[ $a == 'y' ]]
+then rm $file;fi
+done
+else
+for file in P/$1*;do
+rm $file;echo $file deleted
+done
+fi
+---------------------------------------------------
+>>>~$ set 1 2 3 4 5
+>>>~$ echo $@
+>>>~$ echo $@
+1 2 3 4 5
+>>>~$ 
+
+
+>>>~$ cat revers2
+#!/bin/bash
+if [ $# = 4 ]
+then echo $4 $3 $2 $1
+else echo $0 usage: arg1 arg2 arg3 arg4
+fi
+>>>~$ revers2
+./revers2 usage: arg1 arg2 arg3 arg4
+>>>~$ revers2 aaaa bbb cc d
+d cc bbb aaaa
+
+>>>~$ cat sizeofdir
+#!/bin/bash
+cd C
+S=0
+for k in `ls *.cpp`; do
+echo $k
+l=`cat $k|wc -c`
+S=$[ $S+$l ] # let S+=$l
+done
+echo "Size of directory =$S bytes"
+
+>>>~$ chmod a+x sizeofdir
+>>>~$  sizeofdir
+for.cpp
+io.cpp
+Lab11a.cpp
+Lab11.cpp
+Lab13.cpp
+lab14_1.cpp
+lab14_2.cpp
+lab14_3.cpp
+lab15_2.cpp
+lab15_3.cpp
+lab15_4.cpp
+strlen.cpp
+to_lab12_1.cpp
+to_lab12_2.cpp
+Size of directory =12184 bytes
+>>>~$ a=5;b=5; test $a -eq $b; echo $?
+0
+>>>~$ a=5;b=6; test $a -eq $b; echo $?
+1
+>>>~$ a=5;b=6; test $a -eq $b; echo $? # aaaaaaaaaa
+1
+>>>~$ 
+>>>~$ 
+>>>~$ 
+>>>~$ cat revers1
+#!/bin/bash
+if test $# = 4
+then echo $4 $3 $2 $1
+else echo $0 usage: arg1 arg2 arg3 arg4
+fi
+>>>~$ revers1
+./revers1 usage: arg1 arg2 arg3 arg4
+>>>~$ revers1 a
+./revers1 usage: arg1 arg2 arg3 arg4
+>>>~$ revers1 aaaa bbb cc d
+d cc bbb aaaa
+>>>~$ cat revers2
+#!/bin/bash
+if [ $# = 4 ]
+then echo $4 $3 $2 $1
+else echo $0 usage: arg1 arg2 arg3 arg4
+fi
+>>>~$ revers2\ aaaa bbb cc d
+revers2 aaaa: команда не найдена
+>>>~$ revers2 aaaa bbb cc d
+d cc bbb aaaa
+>>>~$ cat >revers3
+>>>~$ chmod a+x revers3
+>>>~$ revers3 1 2 3 4
+./revers3: строка 3: [: 4-1: ожидается целочисленное выражение
+4
+>>>~$ revers3 1 2 3 4
+4
+./revers3: строка 4: [: 4-1: ожидается целочисленное выражение
+4
+>>>~$ revers3 1 2 3 4
+4
+./revers3: строка 4: [: 4-1: ожидается целочисленное выражение
+4
+>>>~$ revers3 1 2 3 4
+4
+3
+2
+1
+4 3 2 1
+>>>~$ revers3 1 2 3 4
+4 3 2 1
+>>>~$ revers3 1 2 3 4 5 6
+6 5 4 3 2 1
+>>>~$ cat >revers4
+list=""
+for arg;do
+list="$arg $list"; done
+echo $list
+>>>~$ cat revers4
+list=""
+for arg;do
+list="$arg $list"; done
+echo $list
+>>>~$ chmod a+x revers4
+>>>~$ revers4 1 2 3 4 5 6 7 
+7 6 5 4 3 2 1
+>>>~$ revers3 6
+6
+>>>~$ cat sizeofdir 
+#!/bin/bash
+cd C
+S=0
+for k in `ls *.cpp`; do
+echo $k
+l=`cat $k|wc -c`
+S=$[ $S+$l ] # let S+=$l
+done
+echo "Size of directory =$S bytes"
+
+>>>~$ ls
+ a   CPP                          jstu4-2.3   revers1   sizeofdir  'Рассылка 7'
+ b   d                            NAM         revers2   TU
+ c   JDT5                         rd          revers3   VTM
+ C   jre-8u261-linux-x64.tar.gz   read        revers4   Лаб21
+>>>~$ wc -c revers4
+54 revers4
+>>>~$ cat delwithprefix 
+if [ $# = 0 ]
+then echo "I'v done nothing"; exit;fi
+if [[ $1 == '?' ]]
+then echo "Use: delwithprefix [-i] [prefix]";fi
+if [[ $1 == '-i' ]]
+then i=1; shift
+else i=0
+fi
+echo "i=$i \$1=$1 \$#=$# \$@=$@"
+if [ $# = 0 ];then
+for file in P/*
+do
+echo "do delete file $file ? (y,n)"
+read a 
+if [[ $a == 'y' ]]
+then rm $file;fi
+done
+else
+for file in P/$1*;do
+rm $file;echo $file deleted
+done
+fi
+
+>>>~$ set 1 2 3 4 5
+>>>~$ echo $@
+>>>~$ echo $@
+1 2 3 4 5
+>>>~$ 
+
+

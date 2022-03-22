@@ -1,0 +1,3 @@
+testlen1 () { for p;do echo lenth of $p = ${#p}; done }
+
+testlen1 1 abcd 'abc def'

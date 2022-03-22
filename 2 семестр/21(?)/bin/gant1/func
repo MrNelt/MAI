@@ -1,0 +1,6 @@
+function s { 
+a=$1;let a+=$a+${#a};echo $a 
+} 
+
+s 200
+
