@@ -69,10 +69,10 @@ void addfirst(item m)
   }
   else
   {
-    t = new ls;
-    t->body = m;
-    f = list;
-    list = t;
+    t = new ls; //новый элемент
+    t->body = m; //записываем туда элемент
+    f = list; //в переменную f записываем текущее состояние
+    list = t; //
     list->next = f;
     list->pre = f->pre;
     f->pre->next = list;
