@@ -148,8 +148,7 @@ void erase() {
 void insert(item m1, item m2) {
     t = tail;
     int flag = 0;
-    ls *f1;
-    ls *f2;
+    ls *f;
     do {
         if (t->body == m2) {
             flag = 1;
@@ -158,10 +157,10 @@ void insert(item m1, item m2) {
                 return;
             }
             else {
-                f1 = new ls;
-                f1->body = m1;
-                f1->next = t->next;
-                t->next = f1;
+                f = new ls;
+                f->body = m1;
+                f->next = t->next;
+                t->next = f;
                 return;
             }            
         }
@@ -191,7 +190,7 @@ void action(item m) {
     }
     erase(); //очищаем список
     for (int i = 0; i < counter; i++) {
-        add(m); //добавляем выбранный элемент
+        add(m); //добавляем выбранный элемент counter раз
     }
 }
 
