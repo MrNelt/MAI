@@ -15,18 +15,21 @@ struct node {
   link left, right;
 } * tree;
 
+
+
 void printtree(link t) {
   static int l = 0;
   l++;
   if (t) {
     printtree(t->right);
     for (i = 0; i < l; i++)
-      printf("    ");
+      printf(" ");
     printf("\\__%c\n", t->data);
     printtree(t->left);
   }
   l--;
 } // printtree----------------------------------
+
 
 int isAN() { return (ch >= 'a') && (ch <= 'z') || (ch >= '0') && (ch <= '9'); }
 
