@@ -1,0 +1,14 @@
+Input from 1 to 10 or 0 for actions:
+1. Generation list.
+2. Addition new items in end of list.
+3. Addition new items in begin of list.
+4. Deleting from list.
+5. Print list.
+6. Inserting in list.
+7. Erase list.
+8. Lenght of list.
+9. Print this MENU
+10. Main Action
+0. Exit out program.
+
+Input number of MENU: k=
