@@ -1,0 +1,30 @@
+Examples of run
+
+>g3 sss a b c d e f g
+
+>lenth abcdefgh
+lenth $1 x2 = 16
+
+>ht abcd12345efgh 5 6 
+head of $1 = abcd1
+tail of $1 = 45efgh
+
+>array
+a
+b
+c
+a b c
+lenth of array = 4
+
+>array d
+a
+b
+c
+a b c
+d
+lenth of array = 5
+
+>fact 6
+fact 6 = 720
+
+

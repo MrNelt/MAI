@@ -1,4 +1,0 @@
-# output array
-a=( a b c 'a b c' $1)
-for (( i=0;i<${#a[@]};i++ ));do echo ${a[i]};done
-echo lenth of array = ${#a[@]}

@@ -1,9 +1,0 @@
-# Make files in directory P with names $1 $2 ... (whithout delete P)
-if [ $# -eq 0 ]; then echo "Usage: g2 namefile1  [namefile2 ...]"; exit;fi
-if test ! -d P; then mkdir P;fi 
-echo 1 > P/ff
-for f;do
-cp P/ff P/$f
-done
-ls P  # for test
-

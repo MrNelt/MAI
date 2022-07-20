@@ -1,0 +1,125 @@
+(base) alex@pop-os:~/Рабочий стол/mai_labs/2 - web$ cat head.txt
+-----------------------------------------------------
+|	Лабораторная работа №3		                |
+|	Сети и телекоммуникации OS Unix				                    |
+|	Выполнил:  студент группы М8О-101Б-21           |
+|	Постнов Александр Вячеславович		            |
+-----------------------------------------------------
+(base) alex@pop-os:~/Рабочий стол/mai_labs/2 - web$ ssh 0.0.0.0
+alex@0.0.0.0's password: 
+Welcome to Pop!_OS 21.04 (GNU/Linux 5.13.0-7614-generic x86_64)
+
+ * Homepage: https://pop.system76.com
+ * Support:  https://support.system76.com
+Last login: Fri Oct 15 15:46:39 2021 from 127.0.0.1
+(base) alex@pop-os:~$ ls
+ 1.cpp                                    skype.deb            Документы
+ anaconda3                                snap                 Загрузки
+ a.out                                    test.cpp             Изображения
+ giant                                    touch                Музыка
+ google-chrome-stable_current_amd64.deb   WhiteSur-gtk-theme   Общедоступные
+ labs.txt                                 zoom_amd64.deb      'Рабочий стол'
+ openboard_ubuntu_16.04_1.5.1_amd64.deb   Видео                Шаблоны
+(base) alex@pop-os:~$ mkdir test
+(base) alex@pop-os:~$ ls
+ 1.cpp                                    snap                 Загрузки
+ anaconda3                                test                 Изображения
+ a.out                                    test.cpp             Музыка
+ giant                                    touch                Общедоступные
+ google-chrome-stable_current_amd64.deb   WhiteSur-gtk-theme  'Рабочий стол'
+ labs.txt                                 zoom_amd64.deb       Шаблоны
+ openboard_ubuntu_16.04_1.5.1_amd64.deb   Видео
+ skype.deb                                Документы
+(base) alex@pop-os:~$ cd test
+(base) alex@pop-os:~/test$ ls
+(base) alex@pop-os:~/test$ touch test.txt
+(base) alex@pop-os:~/test$ ls
+test.txt
+(base) alex@pop-os:~/test$ exit
+выход
+Connection to 0.0.0.0 closed.
+(base) alex@pop-os:~/Рабочий стол/mai_labs/2 - web$ ls
+head.txt  terminal.txt  отчёт3Постнов.docx
+(base) alex@pop-os:~/Рабочий стол/mai_labs/2 - web$ rsync 0.0.0.0:/home/alex/test/test.txt .
+alex@0.0.0.0's password: 
+(base) alex@pop-os:~/Рабочий стол/mai_labs/2 - web$ ls
+head.txt  terminal.txt  test.txt  отчёт3Постнов.docx
+(base) alex@pop-os:~/Рабочий стол/mai_labs/2 - web$ rsync head.txt 0.0.0.0:/home/alex/test/
+alex@0.0.0.0's password: 
+(base) alex@pop-os:~/Рабочий стол/mai_labs/2 - web$ ssh 0.0.0.0
+alex@0.0.0.0's password: 
+Welcome to Pop!_OS 21.04 (GNU/Linux 5.13.0-7614-generic x86_64)
+
+ * Homepage: https://pop.system76.com
+ * Support:  https://support.system76.com
+
+Last login: Fri Oct 15 23:53:20 2021 from 127.0.0.1
+(base) alex@pop-os:~$ ls
+ 1.cpp                                    snap                 Загрузки
+ anaconda3                                test                 Изображения
+ a.out                                    test.cpp             Музыка
+ giant                                    touch                Общедоступные
+ google-chrome-stable_current_amd64.deb   WhiteSur-gtk-theme  'Рабочий стол'
+ labs.txt                                 zoom_amd64.deb       Шаблоны
+ openboard_ubuntu_16.04_1.5.1_amd64.deb   Видео
+ skype.deb                                Документы
+ (base) alex@pop-os:~$ cd test
+(base) alex@pop-os:~/test$ ls
+head.txt  test.txt
+(base) alex@pop-os:~/test$ cat head.txt
+-----------------------------------------------------
+|	Лабораторная работа №3		                |
+|	Сети и телекоммуникации OS Unix				                    |
+|	Выполнил:  студент группы М8О-101Б-21           |
+|	Постнов Александр Вячеславович		            |
+-----------------------------------------------------
+(base) alex@pop-os:~/test$ pwd
+/home/alex/test
+(base) alex@pop-os:~/test$ cd ..
+(base) alex@pop-os:~$ ls
+ 1.cpp                                    snap                 Загрузки
+ anaconda3                                test                 Изображения
+ a.out                                    test.cpp             Музыка
+ giant                                    touch                Общедоступные
+ google-chrome-stable_current_amd64.deb   WhiteSur-gtk-theme  'Рабочий стол'
+ labs.txt                                 zoom_amd64.deb       Шаблоны
+ openboard_ubuntu_16.04_1.5.1_amd64.deb   Видео
+ skype.deb                                Документы
+(base) alex@pop-os:~$ tar -cf test.tar test
+(base) alex@pop-os:~$ ls
+ 1.cpp                                    snap                 Документы
+ anaconda3                                test                 Загрузки
+ a.out                                    test.cpp             Изображения
+ giant                                    test.tar             Музыка
+ google-chrome-stable_current_amd64.deb   touch                Общедоступные
+ labs.txt                                 WhiteSur-gtk-theme  'Рабочий стол'
+ openboard_ubuntu_16.04_1.5.1_amd64.deb   zoom_amd64.deb       Шаблоны
+ skype.deb                                Видео
+(base) alex@pop-os:~$ tar -tf test.tar
+test/
+test/head.txt
+test/test.txt
+(base) alex@pop-os:~$ exit
+выход
+Connection to 0.0.0.0 closed.
+(base) alex@pop-os:~/Рабочий стол/mai_labs/2 - web$ ls
+head.txt  terminal.txt  test.txt  отчёт3Постнов.docx
+(base) alex@pop-os:~/Рабочий стол/mai_labs/2 - web$ rsync 0.0.0.0:/home/alex/test.tar .
+alex@0.0.0.0's password: 
+(base) alex@pop-os:~/Рабочий стол/mai_labs/2 - web$ ls
+head.txt  terminal.txt  test.tar  test.txt  отчёт3Постнов.docx
+(base) alex@pop-os:~/Рабочий стол/mai_labs/2 - web$ tar -xvf test.tar
+test/
+test/head.txt
+test/test.txt
+(base) alex@pop-os:~/Рабочий стол/mai_labs/2 - web$ ls
+head.txt  terminal.txt  test  test.tar  test.txt  отчёт3Постнов.docx
+(base) alex@pop-os:~/Рабочий стол/mai_labs/2 - web$ echo The end!
+The end!
+
+
+SSH — это протокол для установки связи между PC и сервером. Команды SSH, или как их еще называют «команды для PuTTY», — это инструкции для управления различными функциями сервера. С технической точки зрения, это примерно то же самое, что управлять компьютером на базе Linux через терминал.
+
+
+
+

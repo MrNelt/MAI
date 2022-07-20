@@ -1,8 +1,0 @@
-sum2 () {
-echo $(( $1 + $2 ))
-}
-if [ $# -eq 2 ]
-then echo "result=$( sum2 $1 $2 )"
-else
-echo 'Usage: sum2 a b'
-fi
